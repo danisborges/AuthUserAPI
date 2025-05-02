@@ -13,6 +13,4 @@ import application.record.QuestaoDTO;
 
     public QuestaoDTO insert(QuestaoDTO questao) {
         return new QuestaoDTO(questaoRepo.save(new Questao(questao)));
-    }
-    
-}
+    } 
