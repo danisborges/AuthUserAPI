@@ -5,7 +5,12 @@ import org.springframework.stereotype.Service;
 
 import application.model.Questao;
 import application.record.QuestaoDTO;
+import application.repository.QuestaoRepository;
 
+@Service
+public class QuestaoService {
+    @Autowired
+    private QuestaoRepository questaoRepo;
 
     public Iterable<QuestaoDTO> getAll() {
         return questaoRepo.findAll().stream().map(QuestaoDTO::new).toList();
@@ -14,3 +19,4 @@ import application.record.QuestaoDTO;
     public QuestaoDTO insert(QuestaoDTO questao) {
         return new QuestaoDTO(questaoRepo.save(new Questao(questao)));
     } 
+}
